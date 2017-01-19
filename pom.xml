@@ -4,7 +4,7 @@
 
   <groupId>oracle.mangelt</groupId>
   <artifactId>exam_1z0-851</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>exam_1z0-851</name>
