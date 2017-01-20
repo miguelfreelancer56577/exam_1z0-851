@@ -8,20 +8,12 @@ public class App
 {
     public static void main( String[] args )
     {
-    	App a = new App();
-    	a.go();
+    	
+    	RaceCar racer = new RaceCar();
+    	Car car = new RaceCar();
+    	Vehicle vehicle = new RaceCar();
+    	System.out.println(racer.speed() + ", " + car.speed() + ", " + vehicle.speed());
+    	
     }
     
-    public void go() {
-    	Runnable r = new Runnable() {
-			
-			public void run() {
-				System.out.println("foo");
-			}
-		};
-		
-		Thread t = new Thread(r);
-		t.start();
-		t.start();
-	}
 }
