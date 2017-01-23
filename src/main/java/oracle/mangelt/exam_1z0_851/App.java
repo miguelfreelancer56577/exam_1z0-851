@@ -13,9 +13,15 @@ public class App
     public static void main( String[] args )
     {
     	
-    	Foo f = new Bar();
-    	f.addFive();
-    	System.out.println(f.a);
+    	double d = 12.345;
+    	System.out.printf("|%.3f| \n", d);
+    	System.out.printf("|%3.10f| \n", d);
+    	System.out.printf("|%2.7f| \n", d);
+    	System.out.printf("|%7.1f| \n", d);
+    	System.out.printf("|%6f| \n", d);
+    	System.out.printf("|%5f| \n", d);
+    	System.out.printf("|%4f| \n", d);
+    	System.out.printf("|%3f| \n", d);
     	
     }
 }
