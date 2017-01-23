@@ -13,20 +13,23 @@ public class App
     public static void main( String[] args )
     {
     	
-    	DateFormat df = DateFormat.getDateInstance();
-    	
-    	Date d = new Date(0L);
-    	String ds = "December 15, 2004";
-    	
     	try {
-			d = df.parse(ds);
-			d = DateFormat.getDateInstance().parse(ds);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+    		test(); 
+		}catch (RuntimeException ex) {
+			System.out.print("runtime.. "); 
 		}
+    	
+    	System.out.print("end ");
     	
     	
     }
+    
+    static void test() throws RuntimeException {
+    	try {
+    		System.out.print("test ");
+    		throw new RuntimeException();
+    	}//finally{}
+    	catch (Exception ex) { System.out.print("exception "); }
+	}
     
 }
