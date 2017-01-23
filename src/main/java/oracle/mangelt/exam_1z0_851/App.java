@@ -13,23 +13,9 @@ public class App
     public static void main( String[] args )
     {
     	
-    	try {
-    		test(); 
-		}catch (RuntimeException ex) {
-			System.out.print("runtime.. "); 
-		}
-    	
-    	System.out.print("end ");
-    	
+    	Foo f = new Bar();
+    	f.addFive();
+    	System.out.println(f.a);
     	
     }
-    
-    static void test() throws RuntimeException {
-    	try {
-    		System.out.print("test ");
-    		throw new RuntimeException();
-    	}//finally{}
-    	catch (Exception ex) { System.out.print("exception "); }
-	}
-    
 }
