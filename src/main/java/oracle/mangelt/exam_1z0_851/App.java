@@ -13,22 +13,19 @@ public class App
     public static void main( String[] args )
     {
     	
-    	go();
+    	int x = 5;
+    	
+    	App a = new App();
+    	
+    	a.doStuff(x);
+    	
+    	System.out.println(" main x = " + x);
+    	
     	
     }
     
-    public static void go() {
-    	String o = "";
-    	z:
-    	for(int x = 0; x < 3; x++) {
-    		z2:
-	    	for(int y = 0; y < 2; y++) {
-		    	if(x==1) break z2;
-		    	if(x==2 && y==1) break z;
-		    	o = o + x + y;
-	    	}
-    	}
-    	System.out.println(o);
-	}
+    void doStuff(int x){
+    	System.out.println(" doStuff x = " + x++);
+    }
     
 }
