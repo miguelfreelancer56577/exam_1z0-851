@@ -13,16 +13,16 @@ import java.util.PriorityQueue;
 
 public class App 
 {
+	
+	enum Example {ONE,TWO,THREE};
 
 	public static void main( String[] args )
     {
-		PriorityQueue<String> pq = new PriorityQueue<String>();
-		pq.add("banana");
-		pq.add("pear");
-		pq.add("apple");
-		System.out.println(pq);
-		System.out.println(pq.poll() + " " + pq.peek());
-		System.out.println(pq);
+		
+		if(Example.ONE == Example.ONE && Example.ONE.equals(Example.ONE)){
+			System.out.println("they are same.");
+		}
+		
     }
     
 }
