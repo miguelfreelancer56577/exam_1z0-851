@@ -8,24 +8,32 @@ import java.util.Date;
  * Hello world!
  *
  */
-public class App 
+
+class ClassA {
+	public int numberOfInstances;
+	protected ClassA(int numberOfInstances) {
+		this.numberOfInstances = numberOfInstances;
+	}
+}
+
+public class App extends ClassA
 {
-    public static void main( String[] args )
+    protected App(int numberOfInstances) {
+		super(numberOfInstances);
+	}
+
+	public static void main( String[] args )
     {
-    	
-    	int x = 5;
-    	
-    	App a = new App();
-    	
-    	a.doStuff(x);
-    	
-    	System.out.println(" main x = " + x);
-    	
-    	
-    }
-    
-    void doStuff(int x){
-    	System.out.println(" doStuff x = " + x++);
+    	App a = new App(3);
+    	System.out.print(a.numberOfInstances);
     }
     
 }
+
+class ClassB{
+	public static void main(String[] args) {
+		App a = new App(4);
+	}
+}
+
+
