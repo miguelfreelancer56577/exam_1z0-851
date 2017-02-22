@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.PriorityQueue;
+import java.util.TreeSet;
 
 /**
  * Hello world!
@@ -14,14 +15,16 @@ import java.util.PriorityQueue;
 public class App 
 {
 	
-	enum Example {ONE,TWO,THREE};
-
 	public static void main( String[] args )
     {
 		
-		if(Example.ONE == Example.ONE && Example.ONE.equals(Example.ONE)){
-			System.out.println("they are same.");
-		}
+		TreeSet<Integer> s = new TreeSet<Integer>();
+		TreeSet<Integer> subs = new TreeSet<Integer>();
+		for(int i = 606; i < 613; i++)
+		if(i%2 == 0) s.add(i);
+		subs = (TreeSet)s.subSet(608, true, 611, true);
+		s.add(609);
+		System.out.println(s + " " + " " + subs + " " + subs.last());
 		
     }
     
