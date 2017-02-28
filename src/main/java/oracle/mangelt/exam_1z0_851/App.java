@@ -15,16 +15,31 @@ import java.util.TreeSet;
 public class App 
 {
 	
+enum Regex{
+		
+		NONUMERIC("\\D");
+		
+		private String ex;
+		
+		Regex(String ex){
+			this.ex = ex;
+		}
+		
+		public String getEx() {
+			return ex;
+		}
+	}
+	
 	public static void main( String[] args )
     {
 		
-		TreeSet<Integer> s = new TreeSet<Integer>();
-		TreeSet<Integer> subs = new TreeSet<Integer>();
-		for(int i = 606; i < 613; i++)
-		if(i%2 == 0) s.add(i);
-		subs = (TreeSet)s.subSet(608, true, 611, true);
-		s.add(609);
-		System.out.println(s + " " + " " + subs + " " + subs.last());
+		String regex = "\\D";
+		
+		String replacement = "TRF8709701----------+++ñññññññññññññññ313";
+		
+		System.out.println(replacement.replaceAll(regex, ""));
+		
+		System.out.println(Regex.NONUMERIC.getEx());
 		
     }
     
