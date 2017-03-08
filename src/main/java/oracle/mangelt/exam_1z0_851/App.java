@@ -18,24 +18,42 @@ import java.util.TreeSet;
 public class App 
 {
 	
-	
-	public static void synchronizedmain( String[] args )
+	public static void main( String[] args )
     {
 		
-		HashMap props = new HashMap();
-		props.put("key45", "some value");
-		props.put("key12", "some other value");
-		props.put("key39", "yet another value");
-		Set s = props.keySet();
-//		s = new TreeSet(s);
-		System.out.println(s);
+		new TestFive().go();
 		
     }
 	
-	public synchronized static void thred(){
-		
-	}
-    
+}
+
+class TestFive {
+	
+   private int x;
+  
+   public void foo() {
+	   synchronized (this) {
+		   int current = x;
+		   x = current + 1;
+		   System.out.print(x + ", ");
+	   }
+   }
+   
+//   public synchronized void foo() {
+//	   int current = x;
+//	   x = current + 1;
+//	   System.out.println(x + ", ");
+//   }
+  
+   public void go() {
+	   for(int i = 0; i < 100; i++) {
+		   new Thread() {
+			   public void run() {
+				   foo();
+			   }
+		   }.start();
+	   }
+   }
 }
 
 
