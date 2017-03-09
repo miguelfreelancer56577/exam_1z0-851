@@ -16,13 +16,23 @@ public class App
 	public static void main( String[] args )
     {	
 		
-		boolean assertsOn = false;
-		assert (true) : assertsOn = true;
-		if(assertsOn) {
-			System.out.println("assert is on");
+		try {
+			test();
+		} catch (Exception e) {
+			System.out.print("exception ");
 		}
 		
     }
 	
+	static void test() {
+		try {
+		String x = null;
+		System.out.print(x.toString() + " ");
+		}
+		finally { System.out.print("finally "); }
+	}
+	
 }
+
+
 
