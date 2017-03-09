@@ -16,20 +16,15 @@ public class App
 	public static void main( String[] args )
     {	
 		
-		try {
-			test();
-		} catch (Exception e) {
-			System.out.print("exception ");
-		}
+		try { test(); }
+		catch (Exception ex) { System.out.print("exception "); }
+		System.out.print("end ");
 		
     }
 	
-	static void test() {
-		try {
-		String x = null;
-		System.out.print(x.toString() + " ");
-		}
-		finally { System.out.print("finally "); }
+	static void test() throws Error {
+		if (true) throw new AssertionError();
+		System.out.print("test ");
 	}
 	
 }
