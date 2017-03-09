@@ -45,4 +45,17 @@ public class App
 }
 
 
+ class One {
+	 protected void foo() { }
+ }
+
+ class Two extends One {
+//	 int foo() { /* more code here */ }
+//	 void foo() { /* more code here */ }
+//	 public void foo() { /* more code here */ }
+//	 private void foo() { /* more code here */ }
+//	 protected void foo() { /* more code here */ }
+ }
+
+
 
