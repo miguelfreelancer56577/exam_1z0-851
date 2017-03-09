@@ -19,43 +19,19 @@ public class App
 {
 	
 	public static void main( String[] args )
-    {
-		
-		Runnable r = new Runnable() {
-			
-			public void run() {
-				System.out.println("cat");
-			}
-			
-		};
-		
-		Thread t = new Thread(r){
-			
-			public void run(){
-				System.out.println("dog");
-			}
-			
-		};
-		
-		t.start();
+    {	
+//		Syntax error on token "Invalid Character"
+//		String #name = "Jane Doe";
+		int $age = 24;
+		Double _height = 123.5;
+//		Syntax error on token "Invalid Character"
+//		double ~temp = 37.5;
 		
 		
     }
 	
 }
 
-
- class One {
-	 protected void foo() { }
- }
-
- class Two extends One {
-//	 int foo() { /* more code here */ }
-//	 void foo() { /* more code here */ }
-//	 public void foo() { /* more code here */ }
-//	 private void foo() { /* more code here */ }
-//	 protected void foo() { /* more code here */ }
- }
 
 
 
