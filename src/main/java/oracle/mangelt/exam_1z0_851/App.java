@@ -16,18 +16,25 @@ public class App
 	public static void main( String[] args )
     {	
 		
-		try { test(); }
-		catch (Exception ex) { System.out.print("exception "); }
-		System.out.print("end ");
+		try {
+			new A().sayHello("Aiko");
+		} catch (TestException e) {
+			e.printStackTrace();
+		}
 		
     }
 	
-	static void test() throws Error {
-		if (true) throw new AssertionError();
-		System.out.print("test ");
-	}
+	
 	
 }
 
+
+class TestException extends Exception { }
+class A {
+	public String sayHello(String name) throws TestException {
+		if(name == null) throw new TestException();
+		return "Hello " + name;
+	}
+}
 
 
