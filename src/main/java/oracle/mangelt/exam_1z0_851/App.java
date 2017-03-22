@@ -13,23 +13,29 @@ import java.util.Set;
 import java.util.TreeSet;
 
 
-public class App 
+public class App extends Thread
 {
+	private int x = 2;
 	
-	public static void main( String[] args )
+	public App(){
+		x = 5;
+		start();
+	}
+	
+	public static void main( String[] args ) throws Exception
     {	
 		
-		Locale l = Locale.getDefault();
-		DateFormat df = DateFormat.getDateInstance();
-		Date d = new Date();
-		System.out.println(l.getCountry());
-		System.out.println(l.getDisplayCountry());
-		System.out.println(d.toString());
-		System.out.println(df.format(d));
-		
-		
+		new App().makeItSo();
 		
     }
+	
+	public void makeItSo() throws Exception {
+		join();
+		x = x - 1;
+		System.out.println(x);
+	}
+	
+	public void run() { x *= 2; }
 	
 }
 
