@@ -32,37 +32,21 @@ public class App implements Serializable
 	public static void main( String[] args )
     {	
 		
-		Three t = new Three();
+		RecursiveTest test = new RecursiveTest();
 		
-		Three t2 = (Three)t.getInstance();
-		
-		System.out.println(t2.concurrentclass);
-		
-		Three t3 = (Three)new Two();
-		
-		System.out.println(t3.concurrentclass);
+		test.val1(3);
 		
     }
 	
 }
 
-class One{
-	public String concurrentclass = "one" ;
-	public One getInstance(){
-		return this;
+class RecursiveTest{
+	public void val1(int x){
+		val2(x);
+	}
+	
+	public void val2(int y){
+		val1(y);
 	}
 }
 
-class Two extends One{
-	public String concurrentclass = "Two" ;
-	public One getInstance(){
-		return this;
-	}
-}
-
-class Three extends Two{
-	public String concurrentclass = "three" ;
-	public One getInstance(){
-		return this;
-	}
-}
