@@ -27,31 +27,34 @@ public class App implements Serializable
 	public static void main( String[] args )
     {	
 		
-		Base b = new Base();
-		Sub s = new Sub();
-		System.out.print(Base.FOO);
-		System.out.print(Sub.FOO);
-		System.out.print(b.FOO);
-		System.out.print(s.FOO);
-		System.out.print(((Base) s).FOO);
-//		((Base) s).Hi();
-//		s.Hi();
-		((Sub) b).Hi();
+		java.util.List<A> list = new java.util.ArrayList<A>();
+		list.add(new B());
+		list.add(new C());
+		for (A a : list) {
+			a.x();
+//			a.y();
+		}
+		
     }
 	
 }
 
+interface A{
+	void x();
+}
 
-class Base {
-	public static final String FOO = "foo";
-	public void Hi(){
-		System.out.println(">>hi Base<<");
+class B implements A {
+	public void x(){
+		System.out.println("hello a");
+	}
+	public void y(){
+		
 	}
 }
 
-class Sub extends Base {
-	public static final String FOO = "bar";
-	public void Hi(){
-		System.out.println(">>hi Sub<<");
+class C extends B{
+	public void x(){
+		System.out.println("hello c");
 	}
 }
+
