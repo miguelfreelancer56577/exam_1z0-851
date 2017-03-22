@@ -32,54 +32,37 @@ public class App implements Serializable
 	public static void main( String[] args )
     {	
 		
-		Map<String , List<Test>> map = new HashMap<String , List<Test>>();
+		Three t = new Three();
 		
-		map.put("1", new ArrayList<Test>());
-		map.put("2", new ArrayList<Test>());
+		Three t2 = (Three)t.getInstance();
 		
-		System.out.println(map);
+		System.out.println(t2.concurrentclass);
 		
-//		-----------------------
+		Three t3 = (Three)new Two();
 		
-		
-		switch ("1") {
-		
-		case "1":
-			System.out.println("cad 1");
-			break;
-			
-		case "2":
-			System.out.println("cad 2");
-			break;
-
-		default:
-			break;
-		}
-		
-//		-------------------------
-		
-		try {
-			List<String> lines =  Files.readAllLines(Paths.get("C:\\Users\\vn0x53q\\workspaceKepler\\exam_1z0-851\\README.md"), Charset.defaultCharset());
-			for (String string : lines) {
-				System.out.println(string);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		long l = 1_0_0_0000_0;
-		
-		System.out.println(l);
-		
-		
-		
-		
-		
+		System.out.println(t3.concurrentclass);
 		
     }
 	
 }
 
-class Test{}
+class One{
+	public String concurrentclass = "one" ;
+	public One getInstance(){
+		return this;
+	}
+}
 
+class Two extends One{
+	public String concurrentclass = "Two" ;
+	public One getInstance(){
+		return this;
+	}
+}
 
+class Three extends Two{
+	public String concurrentclass = "three" ;
+	public One getInstance(){
+		return this;
+	}
+}
