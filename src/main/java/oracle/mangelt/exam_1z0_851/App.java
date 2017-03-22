@@ -27,14 +27,32 @@ public class App implements Serializable
 	public static void main( String[] args )
     {	
 		
-		 String test = "Test A. Test B. Test C.";
-		 String regex = "\\.\\s*";
-		 String[] result = test.split(regex);
-		 for (String string : result) {
-			System.out.println(string);
-		}
+		MultiCalc calculator = new MultiCalc();
+		calculator.calculate(2);
+		System.out.println("Value is: " + calculator.value);
 		
     }
 	
+}
+
+class SimpleCalc {
+	public int value;
+	public void calculate() { value += 7; }
+}
+
+class MultiCalc extends SimpleCalc {
+	
+	public void calculate() { 
+		value -= 3; 
+	}
+	
+	public void calculate(int multiplier) {
+
+		calculate();
+		
+		super.calculate();
+		
+		value *= multiplier;
+	}
 }
 
