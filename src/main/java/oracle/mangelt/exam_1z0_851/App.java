@@ -24,44 +24,17 @@ import java.util.TreeSet;
 public class App implements Serializable
 {	
 	
-	private Tree t = new Tree();
-	
-	public String s = "Hello you!!!!!!!!!!"; 
-	
 	public static void main( String[] args )
     {	
 		
-		App a = new App();
-		
-		File f = new File("App.obj");
-		
-			try {
-				
-				if(!f.exists()){
-					throw new Exception();
-				}else{
-					FileInputStream i = new FileInputStream (f);
-					ObjectInputStream is = new ObjectInputStream(i);
-					App app2 = (App)is.readObject();
-					System.out.println(app2.s);
-				}
-				
-			} catch (Exception e) {
-				try {
-					FileOutputStream o = new FileOutputStream(f);
-					ObjectOutputStream s = new ObjectOutputStream(o);
-					s.writeObject(a);
-					s.close();
-				} catch (FileNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}
+		 String test = "Test A. Test B. Test C.";
+		 String regex = "\\.\\s*";
+		 String[] result = test.split(regex);
+		 for (String string : result) {
+			System.out.println(string);
+		}
 		
     }
 	
 }
-
-class Tree implements Serializable {}
 
