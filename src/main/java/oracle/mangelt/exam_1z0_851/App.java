@@ -27,32 +27,31 @@ public class App implements Serializable
 	public static void main( String[] args )
     {	
 		
-		MultiCalc calculator = new MultiCalc();
-		calculator.calculate(2);
-		System.out.println("Value is: " + calculator.value);
-		
+		Base b = new Base();
+		Sub s = new Sub();
+		System.out.print(Base.FOO);
+		System.out.print(Sub.FOO);
+		System.out.print(b.FOO);
+		System.out.print(s.FOO);
+		System.out.print(((Base) s).FOO);
+//		((Base) s).Hi();
+//		s.Hi();
+		((Sub) b).Hi();
     }
 	
 }
 
-class SimpleCalc {
-	public int value;
-	public void calculate() { value += 7; }
-}
 
-class MultiCalc extends SimpleCalc {
-	
-	public void calculate() { 
-		value -= 3; 
-	}
-	
-	public void calculate(int multiplier) {
-
-		calculate();
-		
-		super.calculate();
-		
-		value *= multiplier;
+class Base {
+	public static final String FOO = "foo";
+	public void Hi(){
+		System.out.println(">>hi Base<<");
 	}
 }
 
+class Sub extends Base {
+	public static final String FOO = "bar";
+	public void Hi(){
+		System.out.println(">>hi Sub<<");
+	}
+}
