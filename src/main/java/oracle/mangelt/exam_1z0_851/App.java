@@ -1,5 +1,13 @@
 package oracle.mangelt.exam_1z0_851;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -13,29 +21,47 @@ import java.util.Set;
 import java.util.TreeSet;
 
 
-public class App extends Thread
-{
-	private int x = 2;
+public class App implements Serializable
+{	
 	
-	public App(){
-		x = 5;
-		start();
-	}
+	private Tree t = new Tree();
 	
-	public static void main( String[] args ) throws Exception
+	public String s = "Hello you!!!!!!!!!!"; 
+	
+	public static void main( String[] args )
     {	
 		
-		new App().makeItSo();
+		App a = new App();
+		
+		File f = new File("App.obj");
+		
+			try {
+				
+				if(!f.exists()){
+					throw new Exception();
+				}else{
+					FileInputStream i = new FileInputStream (f);
+					ObjectInputStream is = new ObjectInputStream(i);
+					App app2 = (App)is.readObject();
+					System.out.println(app2.s);
+				}
+				
+			} catch (Exception e) {
+				try {
+					FileOutputStream o = new FileOutputStream(f);
+					ObjectOutputStream s = new ObjectOutputStream(o);
+					s.writeObject(a);
+					s.close();
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
 		
     }
 	
-	public void makeItSo() throws Exception {
-		join();
-		x = x - 1;
-		System.out.println(x);
-	}
-	
-	public void run() { x *= 2; }
-	
 }
+
+class Tree implements Serializable {}
 
