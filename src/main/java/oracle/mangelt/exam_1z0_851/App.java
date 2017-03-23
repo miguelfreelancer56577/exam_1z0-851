@@ -26,27 +26,17 @@ import java.util.Set;
 import java.util.TreeSet;
 
 
-public class App implements Serializable
+public class App
 {	
 	
 	public static void main( String[] args )
     {	
 		
-		RecursiveTest test = new RecursiveTest();
+		String property = System.getProperties().getProperty("prop.custom");
 		
-		test.val1(3);
+		System.out.println(property);
 		
     }
 	
-}
-
-class RecursiveTest{
-	public void val1(int x){
-		val2(x);
-	}
-	
-	public void val2(int y){
-		val1(y);
-	}
 }
 
