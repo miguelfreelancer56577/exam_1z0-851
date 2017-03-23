@@ -29,12 +29,26 @@ import java.util.TreeSet;
 public class App
 {	
 	
+	private final int id;
+	
+	public App(int id){
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void updateId(int id) {
+		this.id = id;
+	}
+
 	public static void main( String[] args )
     {	
 		
-		String property = System.getProperties().getProperty("prop.custom");
-		
-		System.out.println(property);
+		App fa = new App(42);
+		fa.updateId(69);
+		System.out.println(fa.id);
 		
     }
 	
