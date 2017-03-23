@@ -29,28 +29,29 @@ import java.util.TreeSet;
 public class App
 {	
 	
-	private final int id;
-	
-	public App(int id){
-		this.id = id;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	
-	public void updateId(int id) {
-		this.id = id;
-	}
-
 	public static void main( String[] args )
     {	
 		
-		App fa = new App(42);
-		fa.updateId(69);
-		System.out.println(fa.id);
+		Fish f = new Walleye();
+		Walleye w = new Walleye();
+		Bluegill b = new Bluegill();
+		if (f instanceof Perch)
+		System.out.print("f-p ");
+		if (w instanceof Fish)
+		System.out.print("w-f ");
+		if (b instanceof Fish)
+		System.out.print("b-f ");
 		
     }
 	
 }
+
+interface Fish{}
+
+class Perch implements Fish{}
+
+class Walleye extends Perch{}
+
+class Bluegill{}
+
 
